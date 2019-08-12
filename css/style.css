@@ -11,11 +11,17 @@
     padding:0 10px;
     margin:0 auto;
 }
-img {
-    vertical-align: top;
 }
 .hidden {
     display:none;
+}
+.sprites {
+    background: url(../images/sprites.png) no-repeat;
+    display:inline-block;
+    text-indent: -9999em;
+}
+img {
+    vertical-align: top;
 }
 body {
     font-family: 'NanumSquareRound',sans-serif; 
@@ -33,15 +39,42 @@ header .header_top {
     background: #F63131;
     display:flex;
     justify-content:space-between;
-    height: 35px;
+    height: 40px;
+    align-items:center;
 }
 header .header_top .aside_toggle a {
-    background: url(../images/hamburger@2x.png) no-repeat;
     display:inline-block;
     width: 18px;
     height: 16px;
     text-indent: -9999em;
+    background-position:-145px -32px;
 }
 header .header_top ul {
     display:flex;
+}
+header .header_top ul li {
+    margin-left: 15px;
+}
+header .header_top ul li a {
+    font-size: 14px;
+    font-weight: 800;
+    color:#fff;
+}
+header .header_top ul li:nth-child(3) a{
+    background-position:-257px -32px;
+    width: 20px;
+    height: 20px;
+}
+header .header_top ul li:nth-child(4) a{
+    background-position:-287px -32px;
+    width: 20px;
+    height: 20px;
+}
+header .header_bottom {
+    text-align: center;
+}
+header .header_bottom .logo a{
+    background-position:-362px -114px;
+    width: 40px;
+    height: 40px;
 }
