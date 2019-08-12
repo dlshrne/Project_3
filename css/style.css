@@ -39,7 +39,7 @@ header .header_top .aside_toggle a {
     background: url(../images/hamburger@2x.png) no-repeat;
     display:inline-block;
     width: 18px;
-    height: 14px;
+    height: 16px;
     text-indent: -9999em;
 }
 header .header_top ul {
