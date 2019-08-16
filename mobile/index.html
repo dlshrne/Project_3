@@ -10,10 +10,11 @@
     <!-- bxslider -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/swiper.min.js"></script>
-    <!-- <script src="js/jquery.touchSwipe.min.js"></script> -->
-    <!-- <script src="js/jquery-3.4.1.min.js"></script> -->
     <script src="js/main.js"></script>
+    
     <!-- fontawesome -->
     <script src="js/all.min.js"></script>
 </head>
@@ -25,10 +26,11 @@
                 <li><a href="">로그인</a></li>
                 <li><a href="">회원가입</a></li>
                 <li><a href="" class="sprites" data-cart="1">장바구니</a></li>
-                <li><a href="" class="sprites">검색</a></li>
+                <li><a href="" class="sprites main_search">검색</a></li>
             </ul>
         </div>
         <div class="aside">
+            <a href=""><span class="sprites aside_close" >close</span></a>
             <div class="aside_top">
                 <div class="aside_top_left">
                     <h1 class="aside_logo"><a href="" class="sprites">aside logo</a></h1>
@@ -44,84 +46,138 @@
                 <a href="">마이페이지</a>
             </div>
             <div class="aside_line02">
-                <a href="">관심상품</a>
-                <a href="">장바구니</a>
-                <a href="">주문조회</a>
+                <a href="" data-aside="3">관심상품</a>
+                <a href="" data-aside="1">장바구니</a>
+                <a href="" data-aside="5">주문조회</a>
             </div>
             <h2>새<em>Farm</em> Store</h2>
-            <ui class="aside_category">
-                <li>새꿀템<span class="sprites">열기닫기</span>
+
+            <div class="aside_menus tabs">
+                <ul class="aside_title">
+                    <li><a href="#tabs_1">카테고리</a></li>
+                    <li><a href="#tabs_2">게시판</a></li>
+                </ul>
+                <div id="tabs_1" class="aside_category">
                     <ul>
-                        <li><a href="">필수용품</a></li>
-                        <li><a href="">선택용품</a></li>
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">새꿀템</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 필수용품</a></li>
+                                <li><a href="">- 선택용품</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">간식&영양제</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 영양제</a></li>
+                                <li><a href="">- 간식</a></li>
+                                <li><a href="">- 보충 모이</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">앵무새분양</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 중대형 앵무</a></li>
+                                <li><a href="">- 소형 앵무</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">모이</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 소형새 모이</a></li>
+                                <li><a href="">- 중형새 모이</a></li>
+                                <li><a href="">- 대형새 모이</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">새장</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 이동장</a></li>
+                                <li><a href="">- 새장선반&부속류</a></li>
+                                <li><a href="">- 놀이터</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">장난감&용품</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 놀이 장난감</a></li>
+                                <li><a href="">- 훈련용품</a></li>
+                                <li><a href="">- 기타용품</a></li>
+                            </ul>
+                        </li>  
+                        <li class="aside_sub">
+                            <div class="aside_menus_title">
+                                <a href="">새이득 Mall</a>
+                                <a href="" class="aside_ac"><i class="fas fa-caret-down"></i></a>
+                            </div>
+                            <ul class="category_sub">
+                                <li><a href="">- 새이득 Mall</a></li>
+                            </ul>
+                        </li>   
                     </ul>
-                </li>  
-                <li>간식&영양제<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">영양제</a></li>
-                        <li><a href="">간식</a></li>
-                        <li><a href="">보충 모이</a></li>
-                    </ul>
-                </li>  
-                <li>앵무새분양<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">중대형 앵무</a></li>
-                        <li><a href="">소형 앵무</a></li>
-                    </ul>
-                </li>  
-                <li>모이<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">소형새 모이</a></li>
-                        <li><a href="">중형새 모이</a></li>
-                        <li><a href="">대형새 모이</a></li>
-                    </ul>
-                </li>  
-                <li>새장<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">이동장</a></li>
-                        <li><a href="">새장선반&부속류</a></li>
-                        <li><a href="">놀이터</a></li>
-                    </ul>
-                </li>  
-                <li>장난감&용품<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">놀이 장난감</a></li>
-                        <li><a href="">훈련용품</a></li>
-                        <li><a href="">기타용품</a></li>
-                    </ul>
-                </li>  
-                <li>새이득 Mall<span class="sprites">열기닫기</span>
-                    <ul>
-                        <li><a href="">새이득 Mall</a></li>
-                    </ul>
-                </li>           
-            </ui>
-            <div class="aside_board">
-                <li>공지사항<span class="sprites">열기닫기</span></li>  
-                <li>상품 Q&A<span class="sprites">열기닫기</span></li>  
-                <li>해외배송문의<span class="sprites">열기닫기</span></li>  
-                <li>event<span class="sprites">열기닫기</span></li>  
-                <li>도매&제휴문의<span class="sprites">열기닫기</span></li>  
-                <li>상품 review<span class="sprites">열기닫기</span></li>  
-            </div>
-            <div class="aside_support">
-                <h3>고객센터</h3>
-                <span class="sprites">열기와닫기</span>
-                <div class="aside_support_desc">
-                    <span><em>tel</em>0000 - 0000</span>
-                    <span><em>fax</em>000 - 000 - 000</span>
-                    <span><em>평일</em>오전 08:00 ~ 오후 18:30</span>
-                    <span><em>토요일</em>오전 09:00 ~ 오후 14:30</span>
-                    <span><em>점심시간</em>오후 12:30 ~ 오후 14:00</span>
+                    <div class="aside_support">
+                        <h3>고객센터</h3>
+                        
+                        <div class="aside_support_desc">
+                            <span><em>tel</em>0000 - 0000</span>
+                            <span><em>fax</em>000 - 000 - 000</span>
+                            <span><em>평일</em>오전 08:00 ~ 오후 18:30</span>
+                            <span><em>토요일</em>오전 09:00 ~ 오후 14:30</span>
+                            <span><em>점심시간</em>오후 12:30 ~ 오후 14:00</span>
+                        </div>
+                    </div>
+                    <div class="aside_sosial">
+                        <span><a href=""><i class="fab fa-instagram color"></i></a></span>
+                        <span><a href=""><i class="fab fa-facebook-f color"></i></a></span>
+                        <span><a href=""><i class="fab fa-twitter color"></i></a></span>
+                    </div>     
                 </div>
-            </div>
-            <div class="aside_sosial">
-                <span><a href=""><i class="fab fa-instagram color"></i></a></span>
-                <span><a href=""><i class="fab fa-facebook-f color"></i></a></span>
-                <span><a href=""><i class="fab fa-twitter color"></i></a></span>
-            </div>
+                <div id="tabs_2" class="aside_board">
+                    <ul>
+                        <li><a href="">공지사항</a></li>  
+                        <li><a href="">상품 Q&A</a></li>  
+                        <li><a href="">해외배송문의</a></li>  
+                        <li><a href="">event</a></li>  
+                        <li><a href="">도매&제휴문의</a></li>  
+                        <li><a href="">상품 review</a></li>  
+                    </ul>
+                    <div class="aside_support">
+                        <h3>고객센터</h3>
+                        <div class="aside_support_desc">
+                            <span><em>tel</em>0000 - 0000</span>
+                            <span><em>fax</em>000 - 000 - 000</span>
+                            <span><em>평일</em>오전 08:00 ~ 오후 18:30</span>
+                            <span><em>토요일</em>오전 09:00 ~ 오후 14:30</span>
+                            <span><em>점심시간</em>오후 12:30 ~ 오후 14:00</span>
+                        </div>
+                    </div>
+                    <div class="aside_sosial">
+                        <span><a href=""><i class="fab fa-instagram color"></i></a></span>
+                        <span><a href=""><i class="fab fa-facebook-f color"></i></a></span>
+                        <span><a href=""><i class="fab fa-twitter color"></i></a></span>
+                    </div>
+                </div>
+            </div>            
         </div>
-        <form action="#">
+        <form action="#" class="main_search_form">
             <input type="text" placeholder="검색해주세요">
             <input type="submit">
             <span class="close"><a href="" class="sprites">close</a></span>
@@ -335,7 +391,7 @@
                         <div class="best_kit com_kit">
                             <a href="" class="sprites">검색</a>
                             <a href="" class="sprites">장바구니</a>
-                            <form action="">
+                            <form action="#">
                                     <input type="checkbox" id="whishlist7">
                                     <label for="whishlist7">
                                         <span class="sprites heart_normal"></span>
