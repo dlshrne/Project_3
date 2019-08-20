@@ -28,21 +28,20 @@ $(function(){
     $('.aside_menus').tabs(); // aside 탭
 
     var $categorySub = $('.category_sub');
-    var $asdieBtn = $('.aside_ac');
-    var $asid_title = $('.aside_menus_title');
+    var $asideBtn = $('.aside_ac');
     
     $categorySub.slideUp();
     $categorySub.hide();
 
-    $asdieBtn.click(function(e){
+    $asideBtn.click(function(e){
         e.preventDefault();
         $(this).parent().toggleClass('active');
 
         if($(this).parent().hasClass('active')){
-            $(this).parent().next('ul').slideDown(500);
+            $(this).parent().next().slideDown();
             
         }else{
-            $(this).parent().next('ul').slideUp(500);
+            $(this).parent().next().slideUp();
         }
         
     }); // aside 서브메뉴
@@ -50,10 +49,45 @@ $(function(){
     $('.main_search').click(function(e){
         e.preventDefault();
         $('.main_search_form').addClass('on');
+    }); // 검색 폼
+
+    var $asideSearch = $('.aside_top_right a');
+
+    $asideSearch.click(function(e){
+        e.preventDefault();
+        $('.aside_search_form').addClass('on');
+    }); // 사이드 검색 폼
+
+
+    var $upDownBtn = $('.updownBtn');
+    var $upBtn = $upDownBtn.find('.upBtn');
+    var $downBtn = $upDownBtn.find('.downBtn');
+
+    $upBtn.click(function(e){
+        e.preventDefault();
+        $('html, body').stop().animate({scrollTop:0}, 400);
+    });
+    $downBtn.click(function(e){
+        e.preventDefault();
+        $('html, body').stop().animate({scrollTop:$(document).height()},400);
+
+    }); // 탑 바텀 버튼
+
+
+    var $imgZoom = $('.zoom');
+    var $imgZoomClose = $('.img_lightbox .lightbox_close');
+
+
+    $imgZoom.click(function(e){
+        e.preventDefault();
+        var $newImg = $(this).parents('div').siblings('a').find('img').attr('data-lightbox')
+        $('#lightbox_img').attr('src', $newImg);
+        $('.img_lightbox').addClass('opa');
     });
 
-
-
-
+    $imgZoomClose.click(function(e){
+        e.preventDefault();
+        $('.img_lightbox').removeClass('opa');
+    }); // 상품이미지 확대
 
 });
