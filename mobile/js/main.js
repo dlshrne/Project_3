@@ -75,12 +75,13 @@ $(function(){
 
 
     var $imgZoom = $('.zoom');
-    var $imgZoomClose = $('.img_lightbox .lightbox_close');
+    var $imgZoombg = $('.img_lightbox');
+    var $imgZoomClose = $imgZoombg.find('.lightbox_close');
 
 
     $imgZoom.click(function(e){
         e.preventDefault();
-        var $newImg = $(this).parents('div').siblings('a').find('img').attr('data-lightbox')
+        var $newImg = $(this).parents('div').siblings('a').find('img').attr('data-lightbox');
         $('#lightbox_img').attr('src', $newImg);
         $('.img_lightbox').addClass('opa');
     });
@@ -88,6 +89,54 @@ $(function(){
     $imgZoomClose.click(function(e){
         e.preventDefault();
         $('.img_lightbox').removeClass('opa');
-    }); // 상품이미지 확대
+    }); 
 
+    $imgZoombg.click(function(){
+        $('.img_lightbox').removeClass('opa');
+    });// 상품이미지 확대, 닫기
+
+
+    var $barket = $('.barket');
+    var $barketBox = $('.cart_box');
+    var $barketBoxName = $barketBox.find('h2');
+    var $barketBoxImg = $barketBox.find('img');
+    var $barketDescName = $barketBox.find('.cart_desc h3');
+
+    $barket.click(function(e){
+        e.preventDefault();
+        var $barketBoxNewImg = $(this).parents('div').siblings('a').find('img').attr('data-lightbox');
+        $barketBoxImg.attr('src', $barketBoxNewImg);
+        var $comwrap = $(this).parents('div.com_wrap');
+        var $comwrapName = $comwrap.find('h2');
+        var $comwrapNameLoad = $comwrapName.text();
+        var $barketCategoryName = $(this).parent('div').attr('data-title');
+        var $price = $(this).parent('div').siblings('div').find('span');
+        var $dataPrice = $price.attr('data-price');
+        var $barketPrice = $('.cart_desc .price').text($dataPrice); // 제품가격을 장바구니박스 가격에 넣어주기
+        
+        $barketBoxName.text($barketCategoryName); // 상품카테고리 타이틀 넣어주기
+        $barketDescName.text('< ' + $comwrapNameLoad + ' >'); // 상품이름 넣어주기
+
+        var $optionBtn = $('.option_count').find('span');
+        var $optionInput = $('.option_count').find('input');
+        var $targetTotal = $('.cart_desc .price');
+
+        $optionBtn.click(function(){
+            var currentCount = parseInt($optionInput.val());
+
+            if($(this).hasClass('plus')){  
+                $optionInput.val(++currentCount);
+            }else{
+                if(currentCount > 1){
+                    $optionInput.val(--currentCount);
+                }
+            }
+
+            var $total = (currentCount * $dataPrice).toLocaleString('en');;
+            $targetTotal.text($total);
+
+            console.log($barketPrice);
+        });
+
+    });
 });

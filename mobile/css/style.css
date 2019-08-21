@@ -614,7 +614,7 @@ section .section_title {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255,255, .95);
+    background-color: rgba(0, 0, 0, .9);
     transition: opacity .3s ease-in;
     z-index:100;
 }
@@ -638,6 +638,75 @@ section .section_title {
     position: absolute;
     right:8%;
     top:28%;
+}
+/* CARTBOX */
+.cart_box {
+    padding:20px 10px;
+    background: #fff;
+    border:1px solid #000;
+    position: fixed;
+    top:50%;
+    transform:translateY(-50%);
+    right:10px;
+    left:10px;
+}
+.cart_box h2 {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    border-bottom:1px solid #ebebeb;
+    padding-bottom:10px;
+    margin-bottom: 10px;
+}
+.cart_box .cart_box_contents {
+    display:flex;
+}
+.cart_box .cart_box_contents img {
+    flex:1;
+    margin-right: 10px;
+}
+.cart_box .cart_box_contents .cart_desc {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    text-align: left;
+}
+.cart_box .cart_box_contents .cart_desc h3,
+ .cart_box .cart_box_contents .cart_desc span,
+ .cart_box .cart_box_contents .cart_desc h4,
+ .cart_box .cart_box_contents .cart_desc input {
+    margin-bottom: 10px;
+}
+.cart_box .cart_box_contents .cart_desc h3,
+.cart_box .cart_box_contents .cart_desc h4 {
+    font-weight: 400;
+}
+.cart_desc_price {
+    display:flex;
+}
+.cart_desc_price h4 {
+    margin-right: 3px;
+}
+.cart_box .cart_box_contents .option .option_count {
+    display:flex;
+}
+.cart_box .cart_box_contents .option .option_count h4 {
+    margin-right: 5px;
+    line-height: 20px;
+}
+.cart_box .cart_box_contents .option .option_count input {
+    width:40%;
+}
+.cart_box .cart_box_contents .option .option_count .plus {
+    background-position: -423px -33px;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+.cart_box .cart_box_contents .option .option_count .minus {
+    background-position: -453px -33px;
+    width: 20px;
+    height: 20px;
 }
 /* -------------------------------------------- FOOTER ------------------------------------------- */
 .cs_center, .bank_info {
