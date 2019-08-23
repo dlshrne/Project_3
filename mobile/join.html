@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인 - 새Farm Store</title>
+    <link rel="stylesheet" href="css/nanumsquareround.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- fontawesome -->
+    <script src="js/all.min.js"></script>
+</head>
+<body>
+    <div class="join_wrapper wrapper">
+        <a href="" class="page_back"><i class="fas fa-arrow-left"></i></a>
+        <div class="login_logo_title">
+            <h1 class="login_logo "><a href="index.html" class="sprites">로그인 로고</a></h1>
+            <h2>로그인</h2>
+        </div>
+        <div class="user_id">
+            <label for="user_id">아이디</label>
+            <input type="text" id="user_id" placeholder="아이디 입력">
+            <span class="sup_txt">&middot; 특수문자 사용이 불가능 합니다.</span>
+            <span class="sup_txt sup_txt_last">&middot; 12자 내로 입력해 주세요. </span>
+        </div>
+        <div class="user_pw">
+            <label for="">비밀번호</label>
+            <div class="pw_del">
+                <input type="password" placeholder="비밀번호 입력">
+                <span class="text_del sprites">텍스트 지우기</span>
+            </div>
+            <input type="text" placeholder="비밀번호 재입력">
+            <span class="sup_txt">&middot; 8 ~ 30자리로 입력해 주세요.</span>
+            <span class="sup_txt sup_txt_last">&middot; 숫자 또는 특수문자로 영문과 조합해 주세요 </span>
+        </div>
+        <div class="user_nick">
+            <label for="">닉네임</label>
+            <div class="nick_count">
+                <input type="text" maxlength="15" placeholder="닉네임을 입력해주세요!">
+                <span>(<i>0</i>/15)</span>
+            </div>
+        </div>
+        <div class="user_number">
+            <label for="">전화번호</label>
+            <select name="" id="">
+                <option value="">+82</option>
+            </select>
+            <span>|</span>
+            <input type="text" placeholder="전화번호 입력">
+            <button class="numberBtn">인증번호 전송</button>
+        </div>
+        <div class="user_birth">
+            <label for="">생일/성별</label>
+            <div class="birth_row">
+                <select name="" id="years">
+                    <option value="">연도</option>
+                </select>
+                <select name="" id="month">
+                    <option value="">월</option>
+                </select>
+                <select name="" id="day">
+                    <option value="">일</option>
+                </select>
+                <input type="checkbox" id="lunar_input">
+                <label for="lunar_input" class="lunar sprites">음력</label>
+                <span>음력</span>
+            </div>
+            
+        </div>
+        <div class="user_sex">
+            <input type="checkbox" id="none">
+            <label for="none" class="none sprites">선택안함</label>
+            <span>선택안함</span>
+            <input type="checkbox" id="men">
+            <label for="men" class="men sprites">남성</label>
+            <span>남성</span>
+            <input type="checkbox" id="women">
+            <label for="women" class="women sprites">여성</label>
+            <span>여성</span>
+        </div>
+        <button class="joinBtn">가입할게요</button>
+</body>
+</html>

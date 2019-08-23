@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인 - 새Farm Store</title>
+    <link rel="stylesheet" href="css/nanumsquareround.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- fontawesome -->
+    <script src="js/all.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="" class="page_back"><i class="fas fa-arrow-left"></i></a>
+        <div class="login_logo_title">
+            <h1 class="login_logo "><a href="index.html" class="sprites">로그인 로고</a></h1>
+            <span>아이디 또는 비밀번호를 다시 확인해주세요!</span>
+            <h2>로그인</h2>
+        </div>
+        <div class="login_form">
+            <div class="login_password_form">
+                <label for="login_input"></label>
+                <input type="text" placeholder="아이디" id="login_input">
+                <span class="exclamation1 sprites">느낌표</span>
+                <label for="password_input"></label>
+                <input type="password" placeholder="비밀번호" id="password_input">
+                <span class="exclamation2 sprites">느낌표</span>
+            </div>
+            <form action="#" class="maintain_remember_security">
+                <input type="checkbox" value="maintain" id="maintain" name="maintain">
+                <label for="maintain"></label>
+                <span>로그인 상태 유지</span>
+                <input type="checkbox" value="remember" id="remember" name="remember"> 
+                <label for="remember"></label>
+                <span>아이디 저장</span>
+                <input type="checkbox" value="security" id="security" name="security">  
+                <label for="security" class="security">
+                    <span class="sec">보안 </span>
+                    <span class="sec_on">on</span>
+                    <span class="sec_off">off</span>
+                </label>
+            </form>
+            <div class="btns">
+                <button class="login_btn">로그인</button>
+                <span>or</span>
+                <a href="" class="join_btn">회원가입</a>
+            </div>
+            <div class="snsbtns">
+                <button class="kakao_btn">카카오 로그인</button>
+                <button class="naver_btn">네이버 로그인</button>
+            </div>
+            <div class="lookup">
+                <a href="">아이디 &middot; 비밀번호 찾기</a>
+                <a href="">비회원 주문조회</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

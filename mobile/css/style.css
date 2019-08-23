@@ -174,16 +174,16 @@ header .header_bottom .logo a{
 header .header_bottom .main_nav {
     border-top:1px solid #2c2c2c;
     border-bottom:1px solid #2c2c2c;
-    padding:15px 10px;
+    padding:15px 0;
     width:100%;
 }
-header .header_bottom .main_nav ul {
-    display:flex;
-    justify-content:space-between;
+header .header_bottom .main_nav ul li {
+    text-align: center;
 }
 header .header_bottom .main_nav ul li a {
     font-size: 16px;
     font-weight: 700;
+    display:block;
 }
 .main_search_form {
     position: absolute;
@@ -649,6 +649,22 @@ section .section_title {
     transform:translateY(-50%);
     right:10px;
     left:10px;
+    opacity:0;
+    visibility:hidden;
+    transition:0.4s;
+}
+.cart_box.click {
+    opacity:1;
+    visibility:visible;
+}
+.cart_box_close {
+    background-position:-204px -113px;
+    width:25px;
+    height: 25px;
+    position: absolute;
+    right:5px;
+    top:10px;
+    cursor:pointer;
 }
 .cart_box h2 {
     font-size: 14px;
@@ -662,11 +678,11 @@ section .section_title {
     display:flex;
 }
 .cart_box .cart_box_contents img {
-    flex:1;
     margin-right: 10px;
+    width:50%;
 }
 .cart_box .cart_box_contents .cart_desc {
-    flex:1;
+    width:50%;
     display:flex;
     flex-direction:column;
     text-align: left;
@@ -695,7 +711,7 @@ section .section_title {
     line-height: 20px;
 }
 .cart_box .cart_box_contents .option .option_count input {
-    width:40%;
+    width:30%;
 }
 .cart_box .cart_box_contents .option .option_count .plus {
     background-position: -423px -33px;
@@ -707,6 +723,13 @@ section .section_title {
     background-position: -453px -33px;
     width: 20px;
     height: 20px;
+}
+.cart_link a{
+    border:1px solid #ddd;
+    display:block;
+    text-align: center;
+    line-height: 20px;
+    height:20px;
 }
 /* -------------------------------------------- FOOTER ------------------------------------------- */
 .cs_center, .bank_info {
@@ -849,4 +872,402 @@ section .section_title {
     background-position:-168px -112px;
     width: 26px;
     height: 28px;
+}/* INDEX END */
+
+/*-------------------------------- LOGIN -------------------------------------*/
+.wrapper {
+    background: #F6E6E6;
+    padding:50px 30px;
+}
+.wrapper .page_back {
+    position: absolute;
+    left:15px;
+    top:15px;
+    font-size: 20px;
+}
+.wrapper .login_logo_title {
+    text-align: center;
+    position: relative;
+}
+.wrapper .login_logo_title span {
+    position: absolute;
+    font-size: 12px;
+    width:130px;
+    background: #fff;
+    padding:10px 2px;
+    top:-5px;
+    left:185px;
+    opacity:0;
+    transition:0.3s;
+}
+.login_logo_title .login_logo {
+    margin-bottom: 10px;
+}
+.login_logo_title .login_logo a {
+    background-position:-362px -114px;
+    width: 40px;
+    height: 40px;
+}
+.login_logo_title .login_logo:after {
+    content:'';
+    position: absolute;
+    border-width:9px;
+    border-style:solid;
+    border-color:transparent #fff transparent  transparent;
+    top:8px;
+    left:169px;
+    opacity:0;
+    transition:0.3s;
+}
+.error .login_logo_title .login_logo:after {
+    opacity:1;
+}
+.error .login_logo_title span {
+    opacity:1;
+}
+.error #login_input {
+    border:2px solid #F63131;
+}
+.error #password_input {
+    border:2px solid #F63131;
+    
+}
+.login_logo_title h2 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+.login_password_form {
+    position: relative;
+}
+#login_input, #password_input {
+    width:100%;
+    height: 50px;
+    border:2px solid transparent;
+    border-radius:2px;
+    font-size: 14px;
+    color:#2c2c2c;
+    background: #fff;
+    padding-left:10px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+#login_input::placeholder, #password_input::placeholder {
+    color:#a1a1a3;
+}
+.exclamation1, .exclamation2 {
+    position: absolute;
+    background-position: 0 -32px;
+    width:14px;
+    height: 23px;
+    right:10px;
+    opacity:0;
+    transition:0.3s;
+}
+.exclamation1 {
+    top:25px;
+    transform:translateY(-50%);
+}
+.exclamation2 {
+    top:95px;
+    transform:translateY(-50%);
+}
+.error .exclamation1, .error .exclamation2 {
+    opacity:1;
+}
+.maintain_remember_security {
+    margin-bottom: 40px;
+}
+.maintain_remember_security label {
+    width:15px;
+    height: 15px;
+    background: #fff;
+    border:1px solid #2c2c2c;
+    border-radius:2px;
+    display:inline-block;
+    margin-right: 10px;
+}
+.maintain_remember_security input{
+    display:none;
+}
+.maintain_remember_security input:checked + label {
+    background: #F63131;
+    border:none;
+}
+.maintain_remember_security span {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 15px;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.maintain_remember_security .security {
+    width:0;
+    height: 0;
+    border:none;
+    background: none;
+    position: relative;
+}
+.maintain_remember_security .security span {
+    width:30px;
+    position: absolute;
+    right:-40px;
+    top:-15px;
+}
+.maintain_remember_security .security .sec_on,
+.maintain_remember_security .security .sec_off {
+    text-transform: uppercase;
+    font-size: 14px;
+    right:-70px;
+    transition:0.3s;
+}
+.maintain_remember_security .security .sec_on {
+    opacity:0;
+    color:#F63131;
+    font-weight: 700;
+}
+.maintain_remember_security .security .sec_off {
+    color:#2c2c2c;
+    font-weight: 700;
+}
+#security:checked + label .sec_on {
+    opacity:1;
+}
+#security:checked + label .sec_off {
+    opacity:0;
+}
+.btns {
+    display:flex;
+    flex-direction:column;
+}
+.btns .login_btn {
+    height: 50px;
+    background: #F86565;
+    border:none;
+    border-radius:2px;
+    color:#fff;
+    font-size: 14px;
+    position: relative;
+}
+.btns .login_btn:before {
+    position: absolute;
+    content:'';
+    background:url(http://cdn.zetawiki.com/png/backslash.png);
+    background-size:100% 100%;
+    left:0; right:0; top:0; bottom:0;
+    opacity:0;
+    transition:0.3s;
+}
+.btns .login_btn:after {
+    position: absolute;
+    content:'';
+    background:url(http://cdn.zetawiki.com/png/slash.png);
+	background-size:100% 100%;
+    left:0; right:0; top:0; bottom:0;
+    opacity:0;
+    transition:0.3s;
+}
+.error .login_btn {
+    border:1px solid #2c2c2c;
+    background: none;
+    color:#F6E6E6;
+}
+.error .login_btn:after {
+    opacity:1;
+}
+.error .login_btn:before {
+    opacity:1;
+}
+.btns .join_btn {
+    height: 50px;
+    background:none;
+    border:2px solid #DEC7C3;
+    border-radius:2px;
+    color:#2c2c2c;
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+.btns span {
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin:7px 0 ;
+}
+.snsbtns .kakao_btn, .snsbtns .naver_btn {
+    width:49%;
+    border:1px solid #DEC7C3;
+    height: 40px;
+    border-radius:2px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+.snsbtns .kakao_btn {
+    margin-right:2px;
+    background: #FFEE33;
+}
+.snsbtns .naver_btn {
+    background: #03C75A;
+}
+.lookup {
+    font-size: 14px;
+    display:flex;
+    justify-content:space-between;
+    padding:0 10px;
+}/* LOGIN END */
+
+/*---------------------------------------------- JOIN -------------------------------------------------------*/
+.join_wrapper label{
+    font-size: 14px;
+    font-weight: 800;
+}
+.join_wrapper input {
+    background: none;
+    border:none;
+    padding:15px 0;
+    border-bottom:2px solid #a1a1a3;
+    margin-bottom: 15px;
+}
+.join_wrapper input::placeholder {
+    color:#a1a1a3;
+    font-size: 16px;
+}
+.user_id, .user_pw, .user_nick, .user_birth {
+    display:flex;
+    flex-direction:column;
+}
+.sup_txt {
+    font-size: 12px;
+    color:#616161;
+    margin-bottom: 5px;
+}
+.sup_txt_last {
+    margin-bottom: 40px;
+}
+.user_pw .pw_del {
+    position: relative;
+}
+.user_pw .pw_del input {
+    width:100%;
+}
+.user_pw .pw_del .text_del {
+    background-position:-204px -113px;
+    width:25px;
+    height: 25px;
+    position: absolute;
+    right:0;
+    top:10px;
+}
+.user_nick .nick_count {
+    position: relative;
+}
+.user_nick .nick_count input {
+    width:100%;
+}
+.user_nick .nick_count span {
+    position: absolute;
+    right:0;
+    top:20px;
+    font-size: 12px;
+    color:#a1a1a3;
+}
+.user_number {
+    position: relative;
+}
+.user_number select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background:url(../images/chevron.png) no-repeat 100% 50%;
+    border:none;
+    height: 20px;
+    width:50px;
+    outline:none;
+    position: absolute;
+    left:0;
+    top:2em;
+}
+.user_number span {
+    position: absolute;
+    top:1.8em;
+    left:60px;
+    font-size: 16px;
+    color:#a1a1a3;
+}
+.user_number input {
+    width:100%;
+    padding: 15px 0 15px 75px;
+}
+.numberBtn {
+    font-size: 16px;
+    background: #fff;
+    border:1px solid #2c2c2c;
+    border-radius:2px;
+    padding:13px 30px;
+    margin-left: 42%;
+    margin-bottom: 50px;
+}
+.user_birth {
+    border-bottom:2px solid #a1a1a3;
+    padding:15px 0;
+    margin-bottom: 15px;
+}
+.birth_row {
+    display:flex;
+    flex-direction:row;
+    margin-top: 15px;
+}
+.user_birth select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background:url(../images/chevron.png) no-repeat 100% 50%;
+    border:none;
+    height: 20px;
+    width:40px;
+    font-size: 16px;
+}
+.user_birth span {
+    font-size: 16px;
+}
+.user_birth .lunar {
+    background-position: -173px -31px;
+    width:20px;
+    height: 20px;
+    vertical-align: top;
+    margin-right: 5px;
+}
+#lunar_input {
+    display:none;
+}
+#lunar_input:checked + label{
+    background-position: -483px -33px;
+}
+#years {
+    width:50px;
+    margin-right: 40px;
+}
+#month {
+    margin-right: 23px;
+}
+#day {
+    margin-right: 23px;
+}
+.user_sex label {
+    background-position: -173px -31px;
+    width:20px;
+    height: 20px;
+    vertical-align: top;
+    margin-right: 5px;
+}
+.user_sex input {
+    display:none;
+}
+.user_sex input:checked + label {
+    background-position: -483px -33px;
+}
+.user_sex span {
+    font-size: 16px;
+    margin-right: 50px;
 }

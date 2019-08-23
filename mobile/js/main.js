@@ -1,16 +1,19 @@
 $(function(){
-
-    $('.main_banner_slides').bxSlider(); // 배너슬라이드
-
-
-    // var swiper = new Swiper('.main_nav', {
-    //     slidesPerView: 5,
-    //     spaceBetween: 30,
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //     },
-    // });
+    if($('.main_banner_slides').length){
+        $('.main_banner_slides').bxSlider(); // 배너슬라이드
+    };
+    
+    if($('.main_nav').length){
+        var swiper = new Swiper('.main_nav', {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            freeMode: true,
+            pagination: {
+              clickable: true,
+            },
+          }); 
+    };// 네비게이션 스와이프
+   
 
     $('.aside_toggle').click(function(ev){
         ev.preventDefault();
@@ -25,7 +28,10 @@ $(function(){
         $('body').removeClass('aside_open');
     }); // 사이드 닫기
 
-    $('.aside_menus').tabs(); // aside 탭
+    if($('.aside_menus').length){
+        $('.aside_menus').tabs(); // aside 탭
+    }
+    
 
     var $categorySub = $('.category_sub');
     var $asideBtn = $('.aside_ac');
@@ -104,6 +110,7 @@ $(function(){
 
     $barket.click(function(e){
         e.preventDefault();
+        $('.cart_box').addClass('click');
         var $barketBoxNewImg = $(this).parents('div').siblings('a').find('img').attr('data-lightbox');
         $barketBoxImg.attr('src', $barketBoxNewImg);
         var $comwrap = $(this).parents('div.com_wrap');
@@ -139,4 +146,39 @@ $(function(){
         });
 
     });
+    $('.cart_box_close').click(function(){
+        $('.cart_box').removeClass('click');
+    }); // 장바구니 팝업
+
+
+    var $loginBtn = $('.login_btn');
+    var $loginInpit = $('.login_password_form input');
+
+
+    $loginBtn.click(function(){
+        $loginInpit.each(function(){
+            $value = $(this).val();
+            if(!$value){
+                $(this).parents('div').addClass('error');
+                $(this).parents('div').siblings().addClass('error');
+            };
+
+        });
+        var $errorCount = $('.error').length;
+        if($errorCount > 0){
+            $loginBtn.prop('disabled', true);
+        }
+    });
+
+    $loginInpit.click(function(){
+        $(this).attr('placeholder', '');
+        $(this).parents('div').removeClass('error');
+        $(this).parents('div').siblings().removeClass('error');
+        $loginBtn.prop('disabled', false);
+    }); // 로그인 오류
+
+
+
+
+   
 });
