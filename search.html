@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>새Farm Store</title>
+    <link rel="stylesheet" href="css/default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        var $ratio = window.devicePixelRatio;
+        // if($ratio > 1){
+        //     location.href = "./mobile/search.html"
+        // }
+        if (Modernizr.touchevents || $ratio >= 2) {
+            location.href = "./mobile/search.html"
+        }
+    </script>
+</head>
+<body>
+    
+    <div id="wrapper">
+        <h1>모바일 전용으로 스마트기기에서 접속하면 정확하게 보실 수 있습니다.</h1>
+        <iframe src="./mobile/search.html"></iframe>
+    </div>
+</body>
+</html>

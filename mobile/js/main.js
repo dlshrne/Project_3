@@ -35,22 +35,37 @@ $(function(){
 
     var $categorySub = $('.category_sub');
     var $asideBtn = $('.aside_ac');
+    var $asideName = $('.aside_menus_title a:first-child');
     
     $categorySub.slideUp();
     $categorySub.hide();
 
     $asideBtn.click(function(e){
-        e.preventDefault();
-        $(this).parent().toggleClass('active');
-
-        if($(this).parent().hasClass('active')){
+        e.preventDefault();     
+        $(this).parents('li').toggleClass('active');
+        
+        if($(this).parents('li').hasClass('active')){
             $(this).parent().next().slideDown();
             
         }else{
             $(this).parent().next().slideUp();
         }
         
+    });
+
+    $asideName.click(function(e){
+        e.preventDefault();
+        $(this).parents('li').toggleClass('active');
+
+        if($(this).parents('li').hasClass('active')){
+            $(this).parent().next().slideDown();
+            
+        }else{
+            $(this).parent().next().slideUp();
+        }
     }); // aside 서브메뉴
+    
+    // aside 서브메뉴
 
     $('.main_search').click(function(e){
         e.preventDefault();
@@ -178,7 +193,168 @@ $(function(){
     }); // 로그인 오류
 
 
+    var $pwDelInput = $('.pw_del input');
+    
+    $pwDelInput.on("propertychange change keyup paste input",function(){
+        $('.text_del').addClass('change');
+        $('.pw_del_placeholer').addClass('change');
+    }); // 텍스트 입력시 텍스트지우기 버튼생성 및 placeholder 지우기
+    
+    $('.text_del').click(function(){
+        $pwDelInput.val('');
+        $('.text_del').removeClass('change');
+        $('.pw_del_placeholer').removeClass('change');
+    }); // 텍스트 지우기 버튼 클릭 시 input 입력 값 초기화 및 placeholer 재생성
+
+    $('#nick_input').keyup(function (e){
+        var content = $(this).val();
+        $('.nick_counter').html("("+content.length+"/15)");   
+
+        if (content.length > 15){
+            $(this).val(content.substring(0, 15));
+            $('#counter').html("(0/15)");
+        }
+     
+    }); //닉네임 글자수 실시간 카운팅
+    
+    var $view1 = $('.view1');
+    var $view2 = $('.view2');
+    var $view3 = $('.view3');
 
 
+
+    $('.product_form li').click(function(e){
+        e.preventDefault();
+        $(this).siblings().removeClass('focus');
+        $(this).addClass('focus');
+    })
+    
+    $view1.click(function(e){
+        e.preventDefault();
+        $('.product').removeClass('v2');
+        $('.product').removeClass('v3');
+    });
+    $view2.click(function(e){
+        e.preventDefault();
+        $('.product').removeClass('v3');
+        $('.product').addClass('v2');
+    });
+    $view3.click(function(e){
+        e.preventDefault();
+        $('.product').removeClass('v2');
+        $('.product').addClass('v3');
+    });// 리스트 보기방식
+
+    $('.tools_plus').click(function(e){
+        e.preventDefault();
+        $(this).parent().toggleClass('hi');
+    }); // 문의 툴
+
+    var $pickBtn = $('.pick_option').find('span');
+    $pickBtn.click(function(){
+        var $pickInput = $('.pick_option').find('input');
+        var currentCount = parseInt($pickInput.val());
+
+        if($(this).hasClass('plus')){  
+            $pickInput.val(++currentCount);
+
+        }else{
+            if(currentCount > 1){
+                $pickInput.val(--currentCount);
+            }
+        }
+    }); // 제품상세 수량 인풋
+
+    var $pickBar = $('.go_bar');
    
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 600 ) {
+            $pickBar.addClass('go');
+        }
+        else {
+            $pickBar.removeClass('go');
+        }
+    }); // 픽 바 나타나게 사라지게
+
+
+    if($('.detail_tabs').length){
+        $('.detail_tabs').tabs(); // 상세페이지 하단 탭
+    }
+    
+
+    var $tabNav = $('.info_title_name li');
+    var $navfocus = $('.tabs_focus');
+
+    $tabNav.click(function(){
+        leftValue = $(this).position().left;
+        $navfocus.stop().animate({left:leftValue});
+        $navfocus.fadeIn();
+    }); // 탭 포커스
+    
+    $tabNav.eq(0).trigger('click');
+    
+    var $imgColorChange = $('.colors').find('button');
+
+    $imgColorChange.click(function(){
+        var $ColorChange = $(this).attr('data-detail');
+        $(this).parent().siblings('img').attr('src', $ColorChange);
+    }); // 색상별로 이미지변경
+
+
+    $('.go_bar a').click(function(e){
+        e.preventDefault();
+        $('.order_pop').addClass('pop');
+        $('.black_bg').addClass('pop');
+    });
+
+    $('.order_pop_x').click(function(e){
+        e.preventDefault();
+        $('.order_pop').removeClass('pop');
+        $('.black_bg').removeClass('pop');
+    }); // 주문 팝업
+
+    $(".all_choice").click(function(){
+        $("input[name=chk]:checkbox").attr("checked", true);
+        
+    }) // 상품 전체선택
+
+    var $inbarket = $('.inbarket_name');
+    var $inbarketUp = $inbarket.find('a');
+
+    $inbarketUp.click(function(e){
+        e.preventDefault();
+        $inbarket.parent().toggleClass('inupdown_p');
+
+        if($inbarket.parent().hasClass('inupdown_p')){
+            $('.inbarket_products').slideUp(300);
+        }else {
+            $('.inbarket_products').slideDown(300);
+        }
+    }); // 장바구니 상품 펼치기 접기
+
+    $('.cart_in').click(function(){
+        $('.barket_popup').addClass('ok');
+    });
+    $('.bar_barket').click(function(){
+        $('.barket_popup').addClass('ok');
+    });
+    $('.noob').click(function(e){
+        e.preventDefault();
+        $('.barket_popup').removeClass('ok');
+    }); // 장바구니 담긴 상품 확인 팝업
+
+    var $listMenuFocus = $('.product_category li');
+
+    $listMenuFocus.click(function(e){
+        e.preventDefault();
+        $(this).siblings().removeClass('focus');
+        $(this).addClass('focus');
+    }); // 리스트 페이지 목록 이름 포커스
+
+    $('.page_back').click(function(e){
+        e.preventDefault();
+        history.go(-1);
+        //history.go(1); history.back(); history.forwards(); 
+    }); // 페이지 백
+
 });
