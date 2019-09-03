@@ -5,12 +5,31 @@ $(function(){
     
     if($('.main_nav').length){
         var swiper = new Swiper('.main_nav', {
-            slidesPerView: 3,
-            spaceBetween: 0,
-            freeMode: true,
-            pagination: {
-              clickable: true,
-            },
+            slidesPerView: 5,
+      spaceBetween: 50,
+      // init: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        }
+      }
           }); 
     };// 네비게이션 스와이프
    
@@ -314,8 +333,12 @@ $(function(){
     }); // 주문 팝업
 
     $(".all_choice").click(function(){
-        $("input[name=chk]:checkbox").attr("checked", true);
-        
+        $(this).parents('div').toggleClass('checked')
+        if($('.inbarket_products').hasClass('checked')){
+            $("input[type='checkbox']").prop('checked', true);
+        }else{
+            $('input[type="checkbox"]').prop('checked', false);
+        }
     }) // 상품 전체선택
 
     var $inbarket = $('.inbarket_name');

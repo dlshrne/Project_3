@@ -40,6 +40,7 @@ button, input::placeholder, input {
 }
 body.aside_open {
     left:80%;
+    position: fixed;
 }
 body.aside_open html {
     overflow-y:hidden;
@@ -885,6 +886,7 @@ section .section_title {
 .wrapper {
     background: #F6E6E6;
     padding:50px 30px;
+    height: 100vh;
 }
 .wrapper .page_back {
     position: absolute;
@@ -1046,6 +1048,22 @@ section .section_title {
 .btns {
     display:flex;
     flex-direction:column;
+    position: relative;
+}
+.btns .reword {
+    position: absolute;
+    z-index:30;
+    left:50%;
+    top:10px;
+    transform:translateX(-50%);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    font-size: 18px;
+}
+.error .reword {
+    opacity:1;
+    visibility:visible;
 }
 .btns .login_btn {
     height: 50px;
@@ -1127,6 +1145,9 @@ section .section_title {
 }/* LOGIN END */
 
 /*---------------------------------------------- JOIN -------------------------------------------------------*/
+.join_wrapper {
+    height: 100%;
+}
 .join_wrapper label{
     font-size: 12px;
     font-weight: 800;
@@ -1955,6 +1976,14 @@ section .section_title {
     background: #F63131;
     border:none;
 }
+.choice_btns .all_choice {
+    font-size: 14px;
+    border: 1px solid #2c2c2c;
+    border-radius: 2px;
+    background: #fff;
+    height: 25px;
+    display:inline-block;
+}
 .choice_btns button{
     font-size: 14px;
     border:1px solid #2c2c2c;
@@ -1962,6 +1991,17 @@ section .section_title {
     background: #fff;
     height: 25px;
 }
+.choice_btns #all_choice {
+    display:none;
+}
+/* .all_choice {
+    font-size: 14px;
+    border: 1px solid #2c2c2c;
+    border-radius: 2px;
+    background: #fff;
+    height: 25px;
+    display:block;
+} */
 .choice_del {
     margin-left: 10px;
 }
